@@ -16,6 +16,7 @@ class HomeviewController: UIViewController, UITableViewDataSource, UITableViewDe
     var postArray: [PostData] = []
     // Firestoreのデータ更新の監視を行うためのリスナー(listener)
     var listener: ListenerRegistration!
+    var postData:PostData?
     
     
     override func viewDidLoad() {
@@ -113,7 +114,22 @@ class HomeviewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     @objc func handleButton2(_ sender: UIButton, forEvent event: UIEvent){
-        
+        //第二引数にはUIEvent型のタップイベントが格納されます。タップイベントの中には、ボタンをタップした時の画面上の座標位置などが格納されています。
+                print("DEBUG_PRINT: commentボタンがタップされました。")
+                // タップされたセルのインデックスを求める
+                let touch = event.allTouches?.first
+        //タッチされた情報の全てを得る
+                let point = touch!.location(in: self.tableView)
+        //タッチされた情報の中でタッチした座標(TableView内の座標)を割り出します
+                let indexPath = tableView.indexPathForRow(at: point)
+        //タッチした座標がtableView内のどのindexPath位置になるのかを取得します。
+                // 配列からタップされたインデックスのデータを取り出す
+            postData = postArray[indexPath!.row]
+        self.performSegue(withIdentifier: "toComment", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let commentViewController:commentViewController = segue.destination as! commentViewController
+        commentViewController.postData = postData
     }
     
     

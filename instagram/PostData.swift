@@ -13,6 +13,8 @@ class PostData: NSObject {
     var id: String
     var name: String?
     var caption: String?
+    var comments:[String] = []
+//commentを格納する場所を作る。
     var date: Date?
     var likes: [String] = []
     var isLiked: Bool = false
@@ -27,6 +29,10 @@ class PostData: NSObject {
         self.caption = postDic["caption"] as? String
         let timestamp = postDic["date"] as? Timestamp
         self.date = timestamp?.dateValue()
+        if let comments = postDic["comments"] as? [String]{
+            self.comments = comments
+        }
+//よく分からないがlikesと形を合わせておく
         if let likes = postDic["likes"] as? [String]{
             self.likes = likes
         }
