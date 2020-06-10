@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import  Firebase
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
@@ -20,6 +21,18 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+//タブバーが表示される時に行う処理を記述
+        super.viewDidAppear(animated)
+//currentUserがnilのとき、ログインしていないことを表す。
+        if Auth.auth().currentUser == nil{
+            let loginViewController = self.storyboard?.instantiateViewController(identifier: "Login")
+//instantiateViewControllerメソッドで該当のViewControllerを取得することができる
+            self.present(loginViewController!, animated: true, completion: nil)
+//presentでモーダル遷移
+        }
+        
     }
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         //optional func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) ->Boolのメソッドはタブボタンがタップされた時に呼ばれ、returnでtrueまたはfalse(Bool型)を返す事によりタブの切り替えを行うか否かを決定させる。また、その中に新しく式を入れても良い。また第二引数のviewControllerは遷移先のviewControllerのインスタンスが入る
