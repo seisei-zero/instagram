@@ -42,7 +42,7 @@ class PostTableViewCell: UITableViewCell {
 //コメントの表示
         var comment_string = ""
         for comment in postData.comments {
-          comment_string += comment
+          comment_string += comment + "\n"
         }
         // コメントラベルに格納
         commentsLabel.text = comment_string

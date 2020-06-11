@@ -104,16 +104,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAr-Yi-bvv">
-                                <rect key="frame" x="107" y="150" width="200" height="200"/>
+                                <rect key="frame" x="107" y="150" width="200" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Wiv-qd-t7D"/>
-                                    <constraint firstAttribute="height" constant="200" id="yhf-av-2JA"/>
+                                    <constraint firstAttribute="height" constant="50" id="yhf-av-2JA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE0-fW-s1V">
-                                <rect key="frame" x="122.5" y="424" width="169" height="30"/>
+                                <rect key="frame" x="122.5" y="274" width="169" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hXo-fs-ExJ"/>
                                 </constraints>
